@@ -23,14 +23,7 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-    in
-    {
-      homeConfigurations.default = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [
+      modules = [
           {
             home.stateVersion = "25.05";
             imports = [
@@ -57,9 +50,12 @@
           ./apps.nix
           ./file.nix 
         ];
-
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
+    in
+    {
+      homeConfigurations.default = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        inherit modules;
       };
+      homeModules = modules;
   };
 }
