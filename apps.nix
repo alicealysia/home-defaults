@@ -15,7 +15,6 @@
 #         jnoortheen.nix-ide
 #       ];
 #     })
-    hut
   ];
 }
 
