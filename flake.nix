@@ -46,9 +46,6 @@
           }
           ./keyboard-shortcuts.nix
           ./variables.nix
-          ./monitors.nix
-          ./apps.nix
-          ./file.nix 
         ];
     in
     {

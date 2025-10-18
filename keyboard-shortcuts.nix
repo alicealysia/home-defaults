@@ -1,4 +1,4 @@
-{ config, lib, ... }: {
+{ config, ... }: {
   programs.niri.settings.binds = with config.lib.niri.actions; {
     "Mod+H".action                              = show-hotkey-overlay;
     "Mod+T".action.spawn                        = "wezterm";
