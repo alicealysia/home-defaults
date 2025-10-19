@@ -12,9 +12,19 @@
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    dgop = {
+      url = "github:AvengeMedia/dgop";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    dms-cli = {
+      url = "github:AvengeMedia/danklinux";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     dankMaterialShell = {
       url = "github:AvengeMedia/DankMaterialShell";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.dgop.follows = "nixpkgs";
+      inputs.dms-cli.follows = "dms-cli";
     };
   };
 
@@ -42,7 +52,10 @@
               enableDynamicTheming = true;
               enableAudioWavelength = true;
               enableCalendarEvents = true;
+              niri.enableSpawn = true;
             };
+            programs.niri.settings.input.focus-follows-mouse.enable = true;
+            programs.niri.settings.input.keyboard.numlock = true;
           }
           ./keyboard-shortcuts.nix
           ./variables.nix
